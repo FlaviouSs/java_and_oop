@@ -1,0 +1,13 @@
+package entities;
+
+import enums.OrderStatus;
+
+public class Order {
+	private Date moment;
+	private OrderStatus status;
+	private OrderItem items;
+	private Product product;
+	
+	
+	
+}
