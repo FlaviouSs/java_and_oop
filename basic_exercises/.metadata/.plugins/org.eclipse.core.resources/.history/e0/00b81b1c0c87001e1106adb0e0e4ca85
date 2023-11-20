@@ -1,0 +1,17 @@
+package model.services;
+
+import model.entities.Contract;
+
+public class ContractService {
+	
+	public ContractService() {
+		
+	}
+	
+	public static void processContract(Contract contract, Integer months) {
+		Date date_contract = contract.getDate();
+		for(int k = 1; k <= months; k++) {
+			
+		}
+	}
+}

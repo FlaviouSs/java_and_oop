@@ -1,0 +1,27 @@
+package model.services;
+
+import model.entities.Contract;
+import model.entities.Date;
+import model.entities.Installment;
+
+public class ContractService {
+	
+	public ContractService() {
+		
+	}
+	
+	public static void processContract(Contract contract, Integer months) {
+		Date date_contract = contract.getDate();
+		Double installmentAmount = contract.getTotalValue();
+		OnlinePaymentService onlinePaymentService = new PaypalService();
+		
+		for(int k = 1; k <= months; k++) {
+			date_contract.setMonth(date_contract.getMonth() + 1);
+			installmentAmount = contract.getTotalValue();
+			installmentAmount += onlinePaymentService.interest(installmentAmount, k);
+			installmentAmount += onlinePaymentService.paymentFee(installmentAmount);
+			
+			contract.getInstallmentList().add(new Installment(date_contract, installmentAmount));
+		}
+	}
+}

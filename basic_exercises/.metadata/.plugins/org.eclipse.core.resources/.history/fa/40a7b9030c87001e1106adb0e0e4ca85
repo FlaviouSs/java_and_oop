@@ -1,0 +1,19 @@
+package model.entities;
+
+public class Date {
+	private Integer day;
+	private Integer month;
+	private Integer year;
+	
+	public Date() {
+		
+	}
+	
+	public Date(String string_date) {
+		String [] aux_vect = new String[3];
+		aux_vect = string_date.split("/");
+		this.day = Integer.valueOf(aux_vect[0]);
+		this.month = Integer.valueOf(aux_vect[1]);
+		this.year = Integer.valueOf(aux_vect[2]);
+	}
+}

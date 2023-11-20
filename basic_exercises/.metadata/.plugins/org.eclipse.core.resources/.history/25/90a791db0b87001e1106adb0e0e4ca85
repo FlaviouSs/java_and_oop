@@ -1,0 +1,7 @@
+package model.entities;
+
+public class Date {
+	private Integer day;
+	private Integer month;
+	private Integer year;
+}
